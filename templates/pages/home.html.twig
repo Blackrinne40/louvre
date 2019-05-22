@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Billetterie </h1>
+        <h2>- Musée du Louvre -</h2>
+        <img src="..." alt="Musée du Louvre" class="ml-auto">
+    </div>
+    <div class="container text-center">
+        <h3>Les tarifs</h3>
+
+        <div class="container mt-4">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Tarif normal</h4>
+                    </div>
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title pricing-card-title">16 € la journée <br/></h5>
+                        <h5><small class="text-muted"> 8 € la demi-journée (à partir de 14h00)</small></h5>
+                        <hr/>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>à partir de 12 ans</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Tarif Enfant</h4>
+                    </div>
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title pricing-card-title">8 € la journée <br/></h5>
+                        <h5><small class="text-muted"> 4 € la demi-journée (à partir de 14h00)</small></h5>
+                        <hr/>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>de 4 à 12 ans</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Tarif Junior</h4>
+                    </div>
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title pricing-card-title">Gratuit la journée<br/></h5>
+                        <h5><small class="text-muted"> et la demi-journée</small></h5>
+                        <hr/>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>moins de 4 ans</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Tarif Senior</h4>
+                    </div>
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title pricing-card-title">12 € la journée <br/></h5>
+                        <h5><small class="text-muted"> 6 € la demi-journée (à partir de 14h00)</small></h5>
+                        <hr/>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>à partir de 60 ans</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Tarif Réduit*</h4>
+                    </div>
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title pricing-card-title">10 € la journée <br/></h5>
+                        <h5><small class="text-muted"> 5 € la demi-journée (à partir de 14h00)</small></h5>
+                        <hr/>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>* Etudiant, militaire, employé du musée...</li>
+                            <li><small style="font-style: italic">Sous réserve de présentation de justificatif à l'accueil</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-lg btn-outline-primary mb-auto">Réserver</button>
+    </div>
+{% endblock %}
