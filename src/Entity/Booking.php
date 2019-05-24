@@ -42,9 +42,9 @@ class Booking
     private $visit_type;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $price;
+    private $confirm_email;
 
     public function getId(): ?int
     {
@@ -111,14 +111,14 @@ class Booking
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getConfirmEmail(): ?string
     {
-        return $this->price;
+        return $this->confirm_email;
     }
 
-    public function setPrice(int $price): self
+    public function setConfirmEmail(string $confirmemail): self
     {
-        $this->price = $price;
+        $this->confirm_email = $confirmemail;
 
         return $this;
     }

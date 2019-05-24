@@ -2,23 +2,23 @@
 
 namespace App\Controller;
 
-use App\Form\BookingType;
+use App\Form\TicketType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BookingController extends AbstractController
+class TicketController extends AbstractController
 {
     /**
-     * @Route("/booking", name="booking")
+     * @Route("/ticket", name="ticket")
      * @return Response
      * @var TYPE_NAME $form
      */
     public function index():Response
     {
-        $form = $this->createForm(BookingType::class);
-        return $this->render('booking/index.html.twig', [
-            'current_menu'=>'booking',
+        $form = $this->createForm(TicketType::class);
+        return $this->render('ticket/index.html.twig', [
+            'current_menu'=>'ticket',
             'form'=> $form->createView()
         ]);
     }

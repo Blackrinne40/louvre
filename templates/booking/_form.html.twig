@@ -1,0 +1,22 @@
+{{ form_start(form) }}
+{{form_errors(form)}}
+
+<div class="row">
+        <div class="col-md-2">{{ form_row(form.number_tickets) }}</div>
+        <div class="col-md-3">{{ form_row(form.visit_type) }}</div>
+        <div class="col-md-4 ">{{ form_row(form.visit_date) }}</div>
+    </div>
+    <div class="row overflow-hidden">
+        <div class="col-md-4 hidden">{{ form_row(form.booking_date) }}{{ "now"|date("d/m/Y") }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.email) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.confirm_email) }}</div>
+    </div>
+{{ form_rest(form) }}
+<a type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5" href="{{ path('home') }}"> X Annuler la commande</a>
+    <a type="submit" class="btn btn-lg btn-outline-success mb-auto mt-5" href="{{ path('ticket') }}"> Poursuivre la commande ></a>
+
+{{ form_end(form) }}

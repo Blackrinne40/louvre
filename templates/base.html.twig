@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item ">
-                    <a class="nav-link {% if current_menu is defined and current_menu == 'booking' %}active{% endif %}" href="{{ path('booking') }}">Commander</a>
+                    <a class="nav-link {% if current_menu is defined and current_menu == 'booking' %}active{% endif %}" href="{{ path('booking') }}">Réserver</a>
                 </li>
             </ul>
             <ul class="navbar-nav m1-auto mt-2 mt-lg-0">
@@ -40,7 +40,7 @@
 
     </section>
     {% endblock %}
-    <footer class="footer mt-4 py-3" style="background-color: #313131">
+    <footer class="footer mt-4 py-3 fixed-bottom" style="background-color: #313131;">
         <div class="container text-center">
             <span class="text-muted">©2019 - Musée du Louvre - Billetterie - Réalisée par Marine A.</span>
         </div>
