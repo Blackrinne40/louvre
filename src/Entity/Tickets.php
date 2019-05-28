@@ -42,9 +42,9 @@ class Tickets
     private $price;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="boolean")
      */
-    private $reduct_price;
+    private $reductPrice;
 
     public function getId(): ?int
     {
@@ -113,12 +113,12 @@ class Tickets
 
     public function getReductPrice(): ?int
     {
-        return $this->reduct_price;
+        return $this->reductPrice;
     }
 
-    public function setReductPrice(int $reduct_price): self
+    public function setReductPrice(int $reductPrice): self
     {
-        $this->reduct_price = $reduct_price;
+        $this->reductPrice = $reductPrice;
 
         return $this;
     }

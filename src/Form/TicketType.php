@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Tickets;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -19,11 +20,12 @@ class TicketType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('birthdate', DateType::class, [
-                'format'=>'dd/MM/yy'
+                'format'=>'dd/MM/yyyy',
+                'widget'=>'single_text'
             ])
             ->add('country', CountryType::class)
             ->add('price', IntegerType::class)
-            ->add('reduct_price')
+            ->add('reductPrice',CheckboxType::class)
         ;
     }
 
