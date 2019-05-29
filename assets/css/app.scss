@@ -1,17 +1,20 @@
 // assets/css/global.scss
 
 // customize some Bootstrap variables
-$primary: darken(#428bca, 20%);
+
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
 
 $footer : black;
 
+.primary{
+  background-color: #ffcc00;
+}
 .card-header{
   background-color: #ffcc00;
 }
 
 .active{
-  color: #ffcc00;
+  color: #ffcc00 !important;
 }

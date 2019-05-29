@@ -1,7 +1,7 @@
 {{ form_start(form) }}
 {{form_errors(form)}}
 
-<div class="row">
+    <div class="row">
         <div class="col-md-2">{{ form_row(form.number_tickets) }}</div>
         <div class="col-md-3">{{ form_row(form.visit_type) }}</div>
         <div class="col-md-4 ">{{ form_row(form.visit_date) }}</div>
@@ -13,7 +13,7 @@
         <div class="col-md-6">{{ form_row(form.email) }}</div>
     </div>
     <div class="row">
-        <div class="col-md-6"><label for="confirmEmail">Confirmation de l'adresse mail</label><br/><input type="text" id="confirmEmail"></div>
+        <div class="col-md-6 form-group"><label for="confirmEmail" class="required">Confirmation de l'adresse mail</label><br/><input class="form-control" type="text" id="confirmEmail"></div>
     </div>
 {{ form_rest(form) }}
     <a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5"> X Annuler la commande</button></a>
