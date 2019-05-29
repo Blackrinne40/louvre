@@ -22,7 +22,7 @@ final class Version20190528082621 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE tickets CHANGE reduct_price reduct_price TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE ticket CHANGE reduct_price reduct_price TINYINT(1) NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20190528082621 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE tickets CHANGE reduct_price reduct_price INT NOT NULL');
+        $this->addSql('ALTER TABLE ticket CHANGE reduct_price reduct_price INT NOT NULL');
     }
 }

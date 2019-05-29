@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
@@ -28,6 +31,7 @@ class Booking
 
     /**
      * @ORM\Column(type="date", length=255)
+     * @Assert\GreaterThanOrEqual("today")
      */
     private $visit_date;
 
@@ -42,9 +46,14 @@ class Booking
     private $visit_type;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking")
      */
-    private $confirm_email;
+    private $tickets;
+
+    public function __construct()
+    {
+        $this->tickets = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,12 +84,12 @@ class Booking
         return $this;
     }
 
-    public function getVisitDate(): ?string
+    public function getVisitDate(): ?\DateTime
     {
         return $this->visit_date;
     }
 
-    public function setVisitDate(string $visit_date): self
+    public function setVisitDate(\DateTime $visit_date): self
     {
         $this->visit_date = $visit_date;
 
@@ -111,14 +120,33 @@ class Booking
         return $this;
     }
 
-    public function getConfirmEmail(): ?string
+    /**
+     * @return Collection|Ticket[]
+     */
+    public function getTickets(): Collection
     {
-        return $this->confirm_email;
+        return $this->tickets;
     }
 
-    public function setConfirmEmail(string $confirmemail): self
+    public function addTicket(Ticket $ticket): self
     {
-        $this->confirm_email = $confirmemail;
+        if (!$this->tickets->contains($ticket)) {
+            $this->tickets[] = $ticket;
+            $ticket->setBooking($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTicket(Ticket $ticket): self
+    {
+        if ($this->tickets->contains($ticket)) {
+            $this->tickets->removeElement($ticket);
+            // set the owning side to null (unless already changed)
+            if ($ticket->getBooking() === $this) {
+                $ticket->setBooking(null);
+            }
+        }
 
         return $this;
     }

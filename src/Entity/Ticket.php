@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\TicketsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TicketRepository")
  */
-class Tickets
+class Ticket
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -46,6 +48,11 @@ class Tickets
      */
     private $reductPrice;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\booking", inversedBy="tickets")
+     */
+    private $booking;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,12 +82,12 @@ class Tickets
         return $this;
     }
 
-    public function getBirthdate(): ?\DateTimeInterface
+    public function getBirthdate(): ?DateTimeInterface
     {
         return $this->birthdate;
     }
 
-    public function setBirthdate(\DateTimeInterface $birthdate): self
+    public function setBirthdate(DateTimeInterface $birthdate): self
     {
         $this->birthdate = $birthdate;
 
@@ -119,6 +126,18 @@ class Tickets
     public function setReductPrice(int $reductPrice): self
     {
         $this->reductPrice = $reductPrice;
+
+        return $this;
+    }
+
+    public function getBooking(): ?booking
+    {
+        return $this->booking;
+    }
+
+    public function setBooking(?booking $booking): self
+    {
+        $this->booking = $booking;
 
         return $this;
     }

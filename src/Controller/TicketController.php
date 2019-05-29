@@ -12,12 +12,19 @@ class TicketController extends AbstractController
     /**
      * @Route("/ticket", name="ticket")
      * @return Response
-     * @var TYPE_NAME $form
      */
-    public function index():Response
+    public function index():Response//SessionInterface $session):Response
     {
-        $form = $this->createForm(TicketType::class);
-        return $this->render('ticket/index.html.twig', [
+
+        //$booking = $session->get('booking');
+
+
+        // $booking->addTicket(new Ticket());
+
+
+
+        $form = $this->createForm(TicketType::class);//,$booking);
+        return $this->render("ticket/index.html.twig", [
             'current_menu'=>'ticket',
             'form'=> $form->createView()
         ]);

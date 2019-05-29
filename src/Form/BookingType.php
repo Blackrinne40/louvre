@@ -22,19 +22,19 @@ class BookingType extends AbstractType
                 'disabled'=>true
             ])
             ->add('visit_date',DateType::class, [
-                'format'=>'dd/MM/yy'
-                //'widget' => 'single_text',
+//                'format'=>'dd/MM/yy',
+                'widget' => 'single_text',
+                'attr' => ['type'=> 'date']
                 //'html5' => false,
                // 'attr' => ['class' => 'js-datepicker']
             ])
-            ->add('number_tickets',NumberType::class)
+            ->add('number_tickets')
             ->add('visit_type', ChoiceType::class, [
                 'choices'=>[
                     'Journée'=>true,
                     'Demi-journée'=>false
                 ]
             ])
-            ->add('confirm_email',EmailType::class)
         ;
     }
 
