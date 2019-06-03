@@ -2,28 +2,36 @@
 
 namespace App\Controller;
 
-use App\Form\TicketType;
+use App\Entity\Booking;
+use App\Entity\Ticket;
+use App\Form\BookingTicketsType;
+use App\Services\PriceCalculator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TicketController extends AbstractController
 {
     /**
      * @Route("/ticket", name="ticket")
+     * @param SessionInterface $session
      * @return Response
      */
-    public function index():Response//SessionInterface $session):Response
+    public function index(SessionInterface $session, PriceCalculator $calculator):Response
     {
 
-        //$booking = $session->get('booking');
+        $booking = $session->get('booking');
 
 
-        // $booking->addTicket(new Ticket());
+        $form = $this->createForm(BookingTicketsType::class, $booking);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // TODO 2 calculer le prix des billets
+            $calculator->computeBookingPrice($booking);
 
-
-
-        $form = $this->createForm(TicketType::class);//,$booking);
+            // TODO 3 rediriger vers la page de recap
+            return $this->redirectToRoute('ticket');
+        }
         return $this->render("ticket/index.html.twig", [
             'current_menu'=>'ticket',
             'form'=> $form->createView()

@@ -2,16 +2,18 @@
 {{form_errors(form)}}
 {{ form_widget(form) }}
 
+{% for ticket in form.tickets %}
 <div class="row">
-    <div class="col-md-2">{{ form_row(form.firstname) }}</div>
-    <div class="col-md-3">{{ form_row(form.lastname) }}</div>
-    <div class="col-md-3 ">{{ form_row(form.birthdate) }}</div>
+    <div class="col-md-2">{{ form_row(ticket.firstname) }}</div>
+    <div class="col-md-3">{{ form_row(ticket.lastname) }}</div>
+    <div class="col-md-3 ">{{ form_row(ticket.birthdate) }}</div>
 </div>
 <div class="row">
-    <div class="col-md-4">{{ form_row(form.country) }}</div>
-    <div class="col-md-2">{{ form_row(form.price) }}</div>
-    <div class="col-md-2">{{ form_row(form.reductPrice) }}</div>
+    <div class="col-md-4">{{ form_row(ticket.country) }}</div>
+    <div class="col-md-2">{{ form_row(ticket.price) }}</div>
+    <div class="col-md-2">{{ form_row(ticket.reductPrice) }}</div>
 </div>
+{% endfor %}
 <div >{{ form_rest(form)}}</div>
 <a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5"> X Annuler la commande</button></a>
 <button type="submit" class="btn btn-lg btn-outline-success mb-auto mt-5"> Récapitulatif de commande ></button>

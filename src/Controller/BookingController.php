@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Booking;
+use App\Entity\Ticket;
 use App\Form\BookingType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +25,19 @@ class BookingController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $session->set('booking', $form->getData());
+            /** @var Booking $booking */
+            $booking = $form->getData();
+
+            $ticketsLimit= $booking->getNumberTickets();
+
+            // TODO 1 faire une boucle permettant d'ajouter autant de ticket vide que souhaité par le client
+            for ($i=1; $i<= $ticketsLimit ; $i++)
+            {
+                $booking->addTicket(new Ticket());
+            }
+
+
+            $session->set('booking', $booking);
             return $this->redirectToRoute('ticket');
         }
 
