@@ -41,9 +41,15 @@ class Booking
     private $number_tickets;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="smallint")
      */
     private $visit_type;
+
+    /**
+     * @ORM\Column(type="float")
+     * @var float
+     */
+    private $totalPrice;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking")
@@ -108,12 +114,12 @@ class Booking
         return $this;
     }
 
-    public function getVisitType(): ?string
+    public function getVisitType(): ?int
     {
         return $this->visit_type;
     }
 
-    public function setVisitType(string $visit_type): self
+    public function setVisitType(int $visit_type): self
     {
         $this->visit_type = $visit_type;
 
