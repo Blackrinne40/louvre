@@ -15,8 +15,9 @@ class BookingController extends AbstractController
 {
     /**
      * @Route("/booking", name="booking")
+     * @param Request $request
+     * @param SessionInterface $session
      * @return Response
-     * @var TYPE_NAME $form
      */
     public function index(Request $request, SessionInterface $session): Response
     {
@@ -30,7 +31,7 @@ class BookingController extends AbstractController
 
             $ticketsLimit= $booking->getNumberTickets();
 
-            // TODO 1 faire une boucle permettant d'ajouter autant de ticket vide que souhaité par le client
+
             for ($i=1; $i<= $ticketsLimit ; $i++)
             {
                 $booking->addTicket(new Ticket());

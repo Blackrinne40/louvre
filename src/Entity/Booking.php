@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-
+use App\Validator\NotTuesday;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,14 +10,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
+ *
  */
 class Booking
 {
     const TYPE_DAY = 1;
     const TYPE_HALF_DAY = 0;
     const PRICE_CHILD = 8;
-    const AGE_CHILD = 4;
+    const AGE_CHILD = 12;
     const PRICE_BABY = 0;
+    const AGE_BABY = 4;
+    const PRICE_ADULT = 16;
+    const AGE_SENIOR = 60;
+    const PRICE_SENIOR = 12;
+    const PRICE_REDUCT = 10;
 
 
     /**
@@ -41,6 +47,7 @@ class Booking
     /**
      * @ORM\Column(type="date", length=255)
      * @Assert\GreaterThanOrEqual("today", message="not_past_date")
+     * @NotTuesday()
      */
     private $visit_date;
 
