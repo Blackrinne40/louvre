@@ -10,11 +10,10 @@
 </div>
 <div class="row">
     <div class="col-md-4">{{ form_row(ticket.country) }}</div>
-    <div class="col-md-2">{{ form_row(ticket.price) }}</div>
     <div class="col-md-2">{{ form_row(ticket.reductPrice) }}</div>
 </div>
 {% endfor %}
-<div >{{ form_rest(form)}}</div>
+<div>{{ form_rest(form)}}</div>
 <a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5"> X Annuler la commande</button></a>
 <button type="submit" class="btn btn-lg btn-outline-success mb-auto mt-5"> Récapitulatif de commande ></button>
 
