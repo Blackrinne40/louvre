@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Validator\NotHolidays;
 use App\Validator\NotSunday;
 use App\Validator\NotTuesday;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -50,6 +51,7 @@ class Booking
      * @Assert\GreaterThanOrEqual("today", message="not_past_date")
      * @NotTuesday()
      * @NotSunday()
+     * @NotHolidays()
      */
     private $visit_date;
 
