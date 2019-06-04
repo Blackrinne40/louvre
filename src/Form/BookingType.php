@@ -18,9 +18,6 @@ class BookingType extends AbstractType
     {
         $builder
             ->add('email',EmailType::class)
-            ->add('booking_date',TextType::class,[
-                'disabled'=>true
-            ])
             ->add('visit_date',DateType::class, [
 //                'format'=>'dd/MM/yy',
                 'widget' => 'single_text',
@@ -31,8 +28,8 @@ class BookingType extends AbstractType
             ->add('number_tickets')
             ->add('visit_type', ChoiceType::class, [
                 'choices'=>[
-                    'Journée'=>true,
-                    'Demi-journée'=>false
+                    'Journée'=>Booking::TYPE_DAY,
+                    'Demi-journée'=>Booking::TYPE_HALF_DAY
                 ]
             ])
         ;

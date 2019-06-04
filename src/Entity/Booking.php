@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +13,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Booking
 {
+    const TYPE_DAY = 1;
+    const TYPE_HALF_DAY = 0;
+    const PRICE_CHILD = 8;
+    const AGE_CHILD = 4;
+    const PRICE_BABY = 0;
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -26,12 +34,13 @@ class Booking
 
     /**
      * @ORM\Column(type="datetime", length=255)
+     *
      */
     private $booking_date;
 
     /**
      * @ORM\Column(type="date", length=255)
-     * @Assert\GreaterThanOrEqual("today")
+     * @Assert\GreaterThanOrEqual("today", message="not_past_date")
      */
     private $visit_date;
 
@@ -119,6 +128,11 @@ class Booking
         return $this->visit_type;
     }
 
+    public function getVisitTypeLabel(): string
+    {
+        return ($this->visit_type == Booking::TYPE_DAY)? "label_day" : "label_half_day";
+    }
+
     public function setVisitType(int $visit_type): self
     {
         $this->visit_type = $visit_type;
@@ -153,6 +167,25 @@ class Booking
                 $ticket->setBooking(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalPrice(): float
+    {
+        return $this->totalPrice;
+    }
+
+    /**
+     * @param float $totalPrice
+     * @return Booking
+     */
+    public function setTotalPrice(float $totalPrice): Booking
+    {
+        $this->totalPrice = $totalPrice;
 
         return $this;
     }
