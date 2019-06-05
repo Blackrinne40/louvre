@@ -6,6 +6,7 @@ use App\Validator\MaxQuantityTickets;
 use App\Validator\NotHolidays;
 use App\Validator\NotSunday;
 use App\Validator\NotTuesday;
+use App\Validator\PMToday;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -15,6 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
  * @MaxQuantityTickets()
+ * @PMToday()
  *
  */
 class Booking
