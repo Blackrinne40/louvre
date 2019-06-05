@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use App\Validator\MaxQuantityTickets;
 use App\Validator\NotHolidays;
 use App\Validator\NotSunday;
 use App\Validator\NotTuesday;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
+ * @MaxQuantityTickets()
  *
  */
 class Booking
@@ -57,6 +60,7 @@ class Booking
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=1, minMessage="Veuillez prendre au moins 1 billet.")
      */
     private $number_tickets;
 
@@ -110,12 +114,12 @@ class Booking
         return $this;
     }
 
-    public function getVisitDate(): ?\DateTime
+    public function getVisitDate(): ?DateTime
     {
         return $this->visit_date;
     }
 
-    public function setVisitDate(\DateTime $visit_date): self
+    public function setVisitDate(DateTime $visit_date): self
     {
         $this->visit_date = $visit_date;
 
