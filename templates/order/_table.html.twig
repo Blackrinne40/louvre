@@ -1,0 +1,51 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Bénéficiaire</th>
+        <th scope="col">Type de billet</th>
+        <th scope="col">Tarif</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">Prix réduit</th>
+        <th scope="col">Pays</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for ticket in booking.tickets %}
+    <tr>
+        <td>{{ ticket.firstname }} {{ ticket.lastname }}</td>
+        <td>{{ booking.visitTypeLabel | trans}}</td>
+        <td>{{ ticket.price }} €</td>
+        <td>{{ ticket.birthDate|date('d/m/Y') }}</td>
+        <td>{{ ticket.reductPrice }}</td>
+        <td>{{ ticket.country }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="2" style="font-weight: bold"> TOTAL à régler</td>
+        <td>
+            <p> {{ booking.totalPrice }} €</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="container">
+    <small style="font-style: italic">Le tarif réduit s'applique sous réserve de présentation de justificatif à l'accueil</small>
+    <p>Veuillez vérifier l'exactitude des informations ci-dessus, et cliquez sur le bouton "Payer" pour procédér au paiement de votre commande.</p>
+</div>
+
+<a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5"> X Annuler la commande</button></a>
+
+    <form action="" method="POST" class="btn btn-lg btn-outline-success mb-auto mt-5">
+        <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ stripe_public_key }}"
+                data-amount="{{ booking.totalPrice * 100}}"
+                data-name="{{ 'Musée du Louvre'|trans }}"
+                data-description="Billetterie"
+                data-email ={{ booking.email }}
+                data-currency="eur"
+                data-label="{{ 'Payer >' |trans }}"
+                data-image="{{ asset('img/logo-homepage.png') }}"
+                data-locale="auto">
+        </script>
+    </form>

@@ -25,7 +25,8 @@
         "symfony/web-link": "4.2.*",
         "symfony/webpack-encore-bundle": "^1.5",
         "symfony/yaml": "4.2.*",
-        "vich/uploader-bundle": "^1.9"
+        "vich/uploader-bundle": "^1.9",
+      "ext-calendar": "*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
