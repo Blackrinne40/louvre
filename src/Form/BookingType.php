@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,13 @@ class BookingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email',EmailType::class)
+            ->add('email',RepeatedType::class, [
+                'type'=> EmailType::class,
+                'invalid_message'=> 'Les adresses mail ne sont pas identiques',
+                'required'=> true,
+                'first_options'=> array('label'=> 'Adresse mail'),
+                'second_options'=> array('label'=> "Confirmer l'adresse mail")
+            ])
             ->add('visit_date',DateType::class, [
 //                'format'=>'dd/MM/yy',
                 'widget' => 'single_text',
@@ -27,6 +34,7 @@ class BookingType extends AbstractType
             ])
             ->add('number_tickets')
             ->add('visit_type', ChoiceType::class, [
+                'help'=> "Le billet Demi-journée n'est valable qu'à partir de 14h.",
                 'choices'=>[
                     'Journée'=>Booking::TYPE_DAY,
                     'Demi-journée'=>Booking::TYPE_HALF_DAY
