@@ -31,6 +31,7 @@ class Booking
     const AGE_SENIOR = 60;
     const PRICE_SENIOR = 12;
     const PRICE_REDUCT = 10;
+    const MAX_CAPACITY = 1000;
 
 
     /**
@@ -76,6 +77,11 @@ class Booking
      * @var float
      */
     private $totalPrice;
+
+    /**
+     * @ORM\Column(type="string",length=12)
+     */
+    private $bookingRef;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking")
@@ -205,5 +211,21 @@ class Booking
         $this->totalPrice = $totalPrice;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBookingRef()
+    {
+        return $this->bookingRef;
+    }
+
+    /**
+     * @param mixed $bookingRef
+     */
+    public function setBookingRef($bookingRef): void
+    {
+        $this->bookingRef = $bookingRef;
     }
 }
