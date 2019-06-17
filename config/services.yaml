@@ -30,3 +30,7 @@ services:
         tags: ['controller.service_arguments']
         arguments:
             $twig: '@twig'
+
+    App\Services\Payment:
+        arguments:
+            $privateKey: '%env(resolve:STRIPE_PRIVATE_KEY)%'
