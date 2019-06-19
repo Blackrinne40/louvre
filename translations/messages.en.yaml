@@ -1,0 +1,48 @@
+label_day: Day
+label_half_day: Half-day
+confirmation1.p.thanks: "We thank you for your order. You will receive in a few moments an email containing"
+label.ticketing: Ticketing
+reduce.price.p: "The reduced rate applies subject to presentation of proof at the reception"
+label.continue.order: "Continue the order >"
+label.cancel.order: "X Cancel the order"
+label.order.summary: "Order summary >"
+label.beneficiary: Beneficiary
+label.summary: Summary
+label.confirmation: Confirmation
+confirmation2.p.thanks: 'tickets to print and present during your visit to the museum.'
+label.reference: Reference
+label.type.ticket: 'Ticket type'
+label.price: Rate
+label.birthdate: "Birth date"
+label.reduce.price: "Reduced price"
+label.country: Country
+label.total.price: "TOTAL set"
+label.total.tosold: "Total to pay"
+label.verify.before.pay: "Please check the accuracy of the information above, and click on the 'Pay' button to proceed with the payment of your order."
+label.museum: "Louvre Museum"
+label.pay: "Pay >"
+label.booking: Booking
+label.prices: "Rates"
+label.normal.price: "Normal rate"
+label.art: "Artwork"
+label.normal.price.day: "16 € the day"
+label.normal.price.halfday: "8 € half-day (from 14h00)"
+label.normal.price.age: "from 12 years old"
+label.child.price: 'Child rate'
+label.child.price.day: "8 € the day"
+label.child.price.halfday: "4 € half day (from 14h00)"
+label.child.price.age: "from 4 to 12 years"
+label.junior.price: "Junior rate"
+label.junior.price.day: "Free day"
+label.junior.price.halfday: "and half day"
+label.junior.price.age: "less than 4 years"
+label.senior.price: "Senior rate"
+label.senior.price.day: "12 € the day"
+label.senior.price.halfday: "6 € half day (from 14h00)"
+label.senior.price.age: "from 60 years old"
+label.reduce.price.day: "10 € the day"
+label.reduce.price.halfday: "5 € half-day (from 14h00)"
+label.reduce.price.specif: "Student, military, museum employee ..."
+french: 'French'
+english: 'English'
+label.footer: "© 2019 - Louvre Museum - Ticketing - Directed by Marine A."

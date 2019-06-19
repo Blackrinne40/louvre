@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Musée du Louvre{% endblock %}</title>
+        <title>{% block title %}{{ 'label.museum'|trans }}{% endblock %}</title>
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -12,25 +12,25 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <a class="navbar-brand" href="{{ path('home') }}">
-            <img src="{{ asset('img/logo-homepage.png') }}" width="30" height="30" alt="Logo du Musée du Louvre" class="d-inline-block align-top">
-            Musée du Louvre
+            <img src="{{ asset('img/logo-homepage.png') }}" width="30" height="30" alt="{{ 'label.art'|trans }}" class="d-inline-block align-top">
+            {{ 'label.museum'|trans }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item ">
-                    <a class="nav-link {% if current_menu is defined and current_menu == 'booking' %}active" style="color: #ffcc00;{% endif %}" href="{{ path('booking') }}">Réserver</a>
+                    <a class="nav-link {% if current_menu is defined and current_menu == 'booking' %}active" style="color: #ffcc00;{% endif %}" href="{{ path('booking') }}">{{ 'label.booking'|trans }}</a>
                 </li>
             </ul>
             <ul class="navbar-nav m1-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a href="/" class="nav-link ">Français</a>
+                    <a class="nav-link text-center {% if app.request.locale == 'fr' %}activeLocale{% endif %}" href="{{ path('home',{"_locale": 'fr'}) }}" style="{% if app.request.locale == 'fr' %}color: #ffcc00{% endif %}">{{ 'french'|trans }}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">English</a>
+                    <a class="nav-link text-center {% if app.request.locale != 'fr' %}activeLocale{% endif %}" href="{{  path('home',{"_locale": 'en'}) }}" style="{% if app.request.locale != 'fr' %}color: #ffcc00{% endif %}">{{ 'english'|trans }}</a>
                 </li>
 
             </ul>
@@ -41,9 +41,9 @@
 
     </section>
     {% endblock %}
-    <footer class="footer mt-5 py-3 " style="background-color: #313131;">
+    <footer class="footer mt-5 py-3">
         <div class="container text-center">
-            <span class="text-muted">©2019 - Musée du Louvre - Billetterie - Réalisée par Marine A.</span>
+            <span class="text-muted">{{ 'label.footer'|trans }}</span>
         </div>
     </footer>
 

@@ -1,12 +1,12 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">Bénéficiaire</th>
-        <th scope="col">Type de billet</th>
-        <th scope="col">Tarif</th>
-        <th scope="col">Date de naissance</th>
-        <th scope="col">Prix réduit</th>
-        <th scope="col">Pays</th>
+        <th scope="col">{{ 'label.beneficiary'|trans }}</th>
+        <th scope="col">{{ 'label.type.ticket'|trans }}</th>
+        <th scope="col">{{ 'label.price'|trans }}</th>
+        <th scope="col">{{ 'label.birthdate'|trans }}</th>
+        <th scope="col">{{ 'label.reduce.price'|trans }}</th>
+        <th scope="col">{{ 'label.country'|trans }}</th>
     </tr>
     </thead>
     <tbody>
@@ -21,7 +21,7 @@
     </tr>
     {% endfor %}
     <tr>
-        <td colspan="2" style="font-weight: bold"> TOTAL à régler</td>
+        <td colspan="2" class="total-price">{{ 'label.total.tosold'|trans }}</td>
         <td>
             <p> {{ booking.totalPrice }} €</p>
         </td>
@@ -29,23 +29,23 @@
     </tbody>
 </table>
 <div class="container">
-    <small style="font-style: italic">Le tarif réduit s'applique sous réserve de présentation de justificatif à l'accueil</small>
-    <p>Veuillez vérifier l'exactitude des informations ci-dessus, et cliquez sur le bouton "Payer" pour procédér au paiement de votre commande.</p>
+    <small>{{ 'reduce.price.p'|trans }}</small>
+    <p>{{ 'label.verify.before.pay'|trans }}</p>
 </div>
 
-<a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5"> X Annuler la commande</button></a>
+<a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5">{{ 'label.cancel.order'|trans }}</button></a>
 
     <form action="" method="POST" class="btn btn-lg btn-outline-success mb-auto mt-5">
         <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="{{ stripe_public_key }}"
-                data-amount="{{ booking.totalPrice * 100}}"
-                data-name="{{ 'Musée du Louvre'|trans }}"
-                data-description="Billetterie"
-                data-email ={{ booking.email }}
+                class="stripe-button" data-amount="{{ booking.totalPrice * 100 }}"
                 data-currency="eur"
-                data-label="{{ 'Payer >' |trans }}"
+                data-description={{ 'label.ticketing'|trans }}
+                        data-email=
                 data-image="{{ asset('img/logo-homepage.png') }}"
-                data-locale="auto">
+                data-key="{{ stripe_public_key }}"{{ booking.email }}
+                data-label="{{ 'label.pay' |trans }}"
+                data-locale="auto"
+                data-name="{{ 'label.museum'|trans }}"
+                src="https://checkout.stripe.com/checkout.js">
         </script>
     </form>

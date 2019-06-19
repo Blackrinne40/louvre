@@ -1,0 +1,14 @@
+label.quantity: "Quantity of tickets"
+label.visit.type: "Visit type"
+label.visit.date: "Visit date"
+label.booking.date: "Booking date"
+label.confirm.email: "Confirm email"
+label.email: "Email"
+label.country: Country
+label.price: Price
+label.reduced.price: "Reduced price"
+label.firstname: Firstname
+label.lastname: Lastname
+label.birthdate: "Birth date"
+label.day: Day
+label.half.day: "Half-day"

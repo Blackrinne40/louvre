@@ -1,12 +1,14 @@
-Number tickets: Nombre de tickets
-Visit type: Type de visite
-Visit date: Date de la visite
-Booking date: Date de réservation
-Confirm email: Confirmation de l'adresse mail
-Email: Adresse mail
-Country: Pays
-Price: Prix
-Reduct price: Prix réduit
-Firstname : Prénom
-Lastname: Nom
-Birthdate: Date de naissance
+label.quantity: "Nombre de tickets"
+label.visit.type: "Type de visite"
+label.visit.date: "Date de la visite"
+label.booking.date: "Date de réservation"
+label.confirm.email: "Confirmation de l'adresse mail"
+label.email: "Adresse mail"
+label.country: Pays
+label.price: Prix
+label.reduced.price: "Prix réduit"
+label.firstname: Prénom
+label.lastname: Nom
+label.birthdate: "Date de naissance"
+label.day: Journée
+label.half.day: "Demi-journée"

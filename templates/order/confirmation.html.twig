@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="ticketing-label text-center">{{ 'label.ticketing'|trans }}</h1>
+        <div class="row mt-4">
+            <div class="workflow picture mr-2">
+                <img src="{{ asset('img/wf1.png') }}" width="80px" alt="workflow_1">
+            </div>
+            <div class="arrow mr-2 mt-3">
+                <img src="{{ asset('img/arrow.png') }}" width="40px" alt="workflow_1">
+            </div>
+            <div class="picture mr-2">
+                <img src="{{ asset('img/wf2.png') }}" width="80px" alt="workflow_1">
+            </div>
+            <div class="arrow mr-2 mt-3">
+                <img src="{{ asset('img/arrow.png') }}" width="40px" alt="workflow_1">
+            </div>
+            <div class="picture mr-2">
+                <img src="{{ asset('img/wf3.png') }}" width="80px" alt="workflow_1">
+
+            </div>
+            <div class="arrow mr-2 mt-3">
+                <img src="{{ asset('img/arrow.png') }}" width="40px" alt="workflow_1">
+            </div>
+            <div class="picture mr-2">
+                <img src="{{ asset('img/wf5.png') }}" width="80px" alt="workflow_1">
+                <h4>{{ 'label.confirmation'|trans }}</h4>
+            </div>
+        </div>
+        <div class="recap mt-4">
+            <h2>{{ 'label.order.summary'|trans }}</h2>
+            <p class="text-center mb-5 max-width">
+                {{ 'confirmation1.p.thanks'|trans }}{{ booking.number_tickets}}{{ 'confirmation2.p.thanks'|trans }}
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">{{ 'label.reference'|trans }}</th>
+                        <th scope="col">{{ 'label.beneficiary'|trans }}</th>
+                        <th scope="col">{{ 'label.type.ticket'|trans }}</th>
+                        <th scope="col">{{ 'label.price'|trans }}</th>
+                        <th scope="col">{{ 'label.birthdate'|trans }}</th>
+                        <th scope="col">{{ 'label.reduce.price'|trans }}</th>
+                        <th scope="col">{{ 'label.country'|trans }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for ticket in booking.tickets %}
+                    <tr>
+                        <td>{{ booking.bookingRef }}</td>
+                        <td>{{ ticket.firstname }} {{ ticket.lastname }}</td>
+                        <td>{{ booking.visitTypeLabel | trans}}</td>
+                        <td>{{ ticket.price }} €</td>
+                        <td>{{ ticket.birthDate|date('d/m/Y') }}</td>
+                        <td>{{ ticket.reductPrice }}</td>
+                        <td>{{ ticket.country }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2" class="total-price">{{ 'label.total.price'|trans }}</td>
+                    <td>{{ booking.totalPrice }} €</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <small>{{ 'reduce.price.p'|trans }}</small>
+        </div>
+    </div>
+{% endblock %}

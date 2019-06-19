@@ -2,89 +2,90 @@
 
 {% block body %}
     <div class="jumbotron text-center">
-        <h1>Billetterie </h1>
-        <h2>- Musée du Louvre -</h2>
-        <img src="{{ asset('img/img6.png') }}" alt="Musée du Louvre" class="ml-auto">
+        <h1>{{ 'label.ticketing'|trans }}</h1>
+        <h2>{{ 'label.museum'|trans }}</h2>
+        <img src="{{ asset('img/img6.png') }}" alt="{{ 'label.museum'|trans }}" class="ml-auto mb-4"><br/>
+        <a class="btn btn-lg btn-outline-primary mt-auto" href="{{ path('booking') }}">{{ 'label.booking'|trans }}</a>
     </div>
     <div class="container text-center">
-        <h3>Les tarifs</h3>
+        <h3>{{ 'label.prices'|trans }}</h3>
 
         <div class="container mt-4">
             <div class="card-deck mb-3 text-center">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Tarif normal</h4>
+                        <h4 class="my-0 font-weight-normal">{{ 'label.normal.price'|trans }}</h4>
                     </div>
-                    <img src="{{ asset('img/img1.png') }}" width="100%" height="200px" class="card-img-top" alt="...">
+                    <img src="{{ asset('img/img1.png') }}" width="100%" height="200px" class="card-img-top" alt="{{ 'label.art'|trans }}">
                     <div class="card-body">
-                        <h5 class="card-title pricing-card-title">16 € la journée <br/></h5>
-                        <h5><small class="text-muted"> 8 € la demi-journée (à partir de 14h00)</small></h5>
+                        <h5 class="card-title pricing-card-title">{{ 'label.normal.price.day'|trans }}<br/></h5>
+                        <h5><small class="text-muted">{{ 'label.normal.price.halfday'|trans }}</small></h5>
                         <hr/>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>à partir de 12 ans</li>
+                            <li>{{ 'label.normal.price.age'|trans }}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Tarif Enfant</h4>
+                        <h4 class="my-0 font-weight-normal">{{ 'label.child.price'|trans }}</h4>
                     </div>
-                    <img src="{{ asset('img/img2.png') }}" width="100%" height="200px" class="card-img-top" alt="...">
+                    <img src="{{ asset('img/img2.png') }}" width="100%" height="200px" class="card-img-top" alt="{{ 'label.art'|trans }}">
                     <div class="card-body">
-                        <h5 class="card-title pricing-card-title">8 € la journée <br/></h5>
-                        <h5><small class="text-muted"> 4 € la demi-journée (à partir de 14h00)</small></h5>
+                        <h5 class="card-title pricing-card-title">{{ 'label.child.price.day'|trans }}<br/></h5>
+                        <h5><small class="text-muted">{{ 'label.child.price.halfday'|trans }}</small></h5>
                         <hr/>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>de 4 à 12 ans</li>
+                            <li>{{ 'label.child.price.age'|trans }}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Tarif Junior</h4>
+                        <h4 class="my-0 font-weight-normal">{{ 'label.junior.price'|trans }}</h4>
                     </div>
-                    <img src="{{ asset('img/img3.png') }}" width="100%" height="200px" class="card-img-top" alt="...">
+                    <img src="{{ asset('img/img3.png') }}" width="100%" height="200px" class="card-img-top" alt="{{ 'label.art'|trans }}">
                     <div class="card-body">
-                        <h5 class="card-title pricing-card-title">Gratuit la journée<br/></h5>
-                        <h5><small class="text-muted"> et la demi-journée</small></h5>
+                        <h5 class="card-title pricing-card-title">{{ 'label.junior.price.day'|trans }}<br/></h5>
+                        <h5><small class="text-muted">{{ 'label.junior.price.halfday'|trans }}</small></h5>
                         <hr/>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>moins de 4 ans</li>
+                            <li>{{ 'label.junior.price.age'|trans }}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Tarif Senior</h4>
+                        <h4 class="my-0 font-weight-normal">{{ 'label.senior.price'|trans }}</h4>
                     </div>
-                    <img src="{{ asset('img/img4.png') }}" width="100%" height="200px" class="card-img-top" alt="...">
+                    <img src="{{ asset('img/img4.png') }}" width="100%" height="200px" class="card-img-top" alt="{{ 'label.art'|trans }}">
                     <div class="card-body">
-                        <h5 class="card-title pricing-card-title">12 € la journée <br/></h5>
-                        <h5><small class="text-muted"> 6 € la demi-journée (à partir de 14h00)</small></h5>
+                        <h5 class="card-title pricing-card-title">{{ 'label.senior.price.day'|trans }}<br/></h5>
+                        <h5><small class="text-muted">{{ 'label.senior.price.halfday'|trans }}</small></h5>
                         <hr/>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>à partir de 60 ans</li>
+                            <li>{{ 'label.senior.price.age'|trans }}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Tarif Réduit*</h4>
+                        <h4 class="my-0 font-weight-normal">{{ 'label.reduce.price'|trans }}</h4>
                     </div>
-                    <img src="{{ asset('img/img5.png') }}" width="100%" height="200px" class="card-img-top" alt="...">
+                    <img src="{{ asset('img/img5.png') }}" width="100%" height="200px" class="card-img-top" alt="{{ 'label.art'|trans }}">
                     <div class="card-body">
-                        <h5 class="card-title pricing-card-title">10 € la journée <br/></h5>
-                        <h5><small class="text-muted"> 5 € la demi-journée (à partir de 14h00)</small></h5>
+                        <h5 class="card-title pricing-card-title">{{ 'label.reduce.price.day'|trans }}<br/></h5>
+                        <h5><small class="text-muted">{{ 'label.reduce.price.halfday'|trans }}</small></h5>
                         <hr/>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>* Etudiant, militaire, employé du musée...</li>
-                            <li><small style="font-style: italic">Sous réserve de présentation de justificatif à l'accueil</small></li>
+                            <li>{{ 'label.reduce.price.specif'|trans }}</li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <p><small>{{ 'reduce.price.p'|trans }}</small></p>
         </div>
 
-        <a class="btn btn-lg btn-outline-primary mb-auto" href="{{ path('booking') }}">Réserver</a>
+
     </div>
 {% endblock %}

@@ -2,9 +2,9 @@
 
 {% block body %}
     <div class="container mt-4">
-        <h1 class="text-center" style="font-weight: lighter;">Billetterie</h1>
+        <h1 class="ticketing-label text-center">{{ 'label.ticketing'|trans }}</h1>
         <div class="row mt-4">
-            <div class="picture mr-2" style="margin-left: 20%;">
+            <div class="workflow picture mr-2">
                 <img src="{{ asset('img/wf1.png') }}" width="80px" alt="workflow_1">
             </div>
             <div class="arrow mr-2 mt-3">
@@ -18,13 +18,7 @@
             </div>
             <div class="picture mr-2">
                 <img src="{{ asset('img/wf3.png') }}" width="80px" alt="workflow_1">
-                <h4 style="font-weight: lighter;">Récapitulatif</h4>
-            </div>
-            <div class="arrow mr-2 mt-3">
-                <img src="{{ asset('img/arrow.png') }}" width="40px" alt="workflow_1">
-            </div>
-            <div class="picture mr-2">
-                <img src="{{ asset('img/wf4.png') }}" width="80px" alt="workflow_1">
+                <h4>{{ 'label.summary'|trans }}</h4>
             </div>
             <div class="arrow mr-2 mt-3">
                 <img src="{{ asset('img/arrow.png') }}" width="40px" alt="workflow_1">
@@ -33,8 +27,9 @@
                 <img src="{{ asset('img/wf5.png') }}" width="80px" alt="workflow_1">
             </div>
         </div>
-        <div class="mt-4" style="margin-left: 15%;">
+        <div class="reduce-price mt-4">
             {{ include('order/_table.html.twig')}}
+
         </div>
     </div>
 {% endblock %}

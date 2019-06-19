@@ -10,7 +10,7 @@
         <div class="col-md-6">{{ form_row(form.email) }}</div>
     </div>
 {{ form_rest(form) }}
-    <a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5"> X Annuler la commande</button></a>
-    <button type="submit" class="btn btn-lg btn-outline-success mb-auto mt-5"> Poursuivre la commande ></button>
+    <a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5">{{ 'label.cancel.order'|trans }}</button></a>
+    <button type="submit" class="btn btn-lg btn-outline-success mb-auto mt-5">{{ 'label.continue.order'|trans }}</button>
 
 {{ form_end(form) }}

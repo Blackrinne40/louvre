@@ -1,0 +1,48 @@
+label_day: Journée
+label_half_day: Demi-journée
+confirmation1.p.thanks: "Nous vous remerçions pour votre commande. Vous allez recevoir dans quelques instants un mail contenant"
+label.ticketing: Billetterie
+reduce.price.p: "Le tarif réduit s'applique sous réserve de présentation de justificatif à l'accueil"
+label.continue.order: "Poursuivre la commande >"
+label.cancel.order: "X Annuler la commande"
+label.order.summary: "Récapitulatif de commande >"
+label.beneficiary: Bénéficiaire
+label.summary: Récapitulatif
+label.confirmation: Confirmation
+confirmation2.p.thanks: 'billets à imprimer et à présenter lors de votre visite du musée.'
+label.reference: Référence
+label.type.ticket: 'Type de billet'
+label.price: Tarif
+label.birthdate: "Date de naissance"
+label.reduce.price: "Tarif réduit"
+label.country: Pays
+label.total.price: "TOTAL réglé"
+label.total.tosold: "TOTAL à régler"
+label.verify.before.pay: "Veuillez vérifier l'exactitude des informations ci-dessus, et cliquez sur le bouton 'Payer' pour procédér au paiement de votre commande."
+label.museum: "Musée du Louvre"
+label.pay: "Payer >"
+label.booking: Réserver
+label.prices: "Les tarifs"
+label.normal.price: "Tarif normal"
+label.art: "Oeuvre d'art"
+label.normal.price.day: "16 € la journée "
+label.normal.price.halfday: "8 € la demi-journée (à partir de 14h00)"
+label.normal.price.age: "à partir de 12 ans"
+label.child.price: 'Tarif Enfant'
+label.child.price.day: "8 € la journée "
+label.child.price.halfday: "4 € la demi-journée (à partir de 14h00)"
+label.child.price.age: "de 4 à 12 ans"
+label.junior.price: "Tarif Junior"
+label.junior.price.day: "Gratuit la journée"
+label.junior.price.halfday: "et la demi-journée"
+label.junior.price.age: "moins de 4 ans"
+label.senior.price: "Tarif Senior"
+label.senior.price.day: "12 € la journée"
+label.senior.price.halfday: "6 € la demi-journée (à partir de 14h00)"
+label.senior.price.age: "à partir de 60 ans"
+label.reduce.price.day: "10 € la journée"
+label.reduce.price.halfday: "5 € la demi-journée (à partir de 14h00)"
+label.reduce.price.specif: "Etudiant, militaire, employé du musée..."
+french: 'Français'
+english: 'Anglais'
+label.footer: "©2019 - Musée du Louvre - Billetterie - Réalisée par Marine A."

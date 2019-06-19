@@ -14,7 +14,7 @@
 </div>
 {% endfor %}
 <div>{{ form_rest(form)}}</div>
-<a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5"> X Annuler la commande</button></a>
-<button type="submit" class="btn btn-lg btn-outline-success mb-auto mt-5"> Récapitulatif de commande ></button>
+<a href="{{ path('home') }}"><button type="submit" class="btn btn-lg btn-outline-danger mb-auto mt-5">{{ 'label.cancel.order'|trans }}</button></a>
+<button type="submit" class="btn btn-lg btn-outline-success mb-auto mt-5">{{ 'label.order.summary'|trans }}</button>
 
 {{ form_end(form) }}
