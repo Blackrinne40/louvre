@@ -15,6 +15,5 @@ class NotTuesdayValidator extends ConstraintValidator
             $this->context->buildViolation($constraint->message)
                 ->addViolation();
         }
-        else{ return;}
     }
 }

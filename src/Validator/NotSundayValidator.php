@@ -15,6 +15,5 @@ class NotSundayValidator extends ConstraintValidator
             $this->context->buildViolation($constraint->message)
                 ->addViolation();
         }
-        else{ return;}
     }
 }

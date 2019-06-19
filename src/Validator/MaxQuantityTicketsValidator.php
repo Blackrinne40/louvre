@@ -2,6 +2,8 @@
 
 namespace App\Validator;
 
+use App\Entity\Booking;
+use App\Repository\BookingRepository;
 use App\Services\TotalTicketsDayCalculator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -12,12 +14,17 @@ use Symfony\Component\Validator\ConstraintValidator;
 class MaxQuantityTicketsValidator extends ConstraintValidator
 {
     /**
-     * MaxQuantityTicketsValidator constructor.
-     * @param TotalTicketsDayCalculator $totalTicketsDayCalculator
+     * @var BookingRepository
      */
-    public function __construct(TotalTicketsDayCalculator $totalTicketsDayCalculator)
+    private $bookingRepository;
+
+    /**
+     * MaxQuantityTicketsValidator constructor.
+     * @param BookingRepository $bookingRepository
+     */
+    public function __construct(BookingRepository $bookingRepository)
     {
-        $this->totalTicketsDayCalculator = $totalTicketsDayCalculator;
+        $this->bookingRepository = $bookingRepository;
     }
 
     /**
@@ -26,17 +33,17 @@ class MaxQuantityTicketsValidator extends ConstraintValidator
      */
     public function validate($booking, Constraint $constraint)
     {
-        $totalTicketsDay= $this->totalTicketsDayCalculator->totalTicketsDayCalculator($booking->getBookingDate());
-        $ticketsQuantityAvailable = 1000 - $totalTicketsDay;
+        /** @var Booking $booking */
+        $totalTicketsDay= $this->bookingRepository->countTicketPerDay($booking->getVisitDate());
+        $ticketsQuantityAvailable = Booking::MAX_CAPACITY - $totalTicketsDay;
         /* @var $constraint MaxQuantityTickets */
 
-        if (($booking->getNumberTickets() + $totalTicketsDay )>1000)
+        if (($booking->getNumberTickets() + $totalTicketsDay )>Booking::MAX_CAPACITY)
         {
            $this->context->buildViolation($constraint->message)
             ->setParameter('{{ ticketsQuantityAvailable }}', $ticketsQuantityAvailable)
                ->atPath('number_tickets')
             ->addViolation();
         }
-        else {return;}
     }
 }
