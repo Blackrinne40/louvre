@@ -39,10 +39,10 @@
         <script
                 class="stripe-button" data-amount="{{ booking.totalPrice * 100 }}"
                 data-currency="eur"
-                data-description={{ 'label.ticketing'|trans }}
-                        data-email=
+                data-description="{{ 'label.ticketing'|trans }}"
                 data-image="{{ asset('img/logo-homepage.png') }}"
-                data-key="{{ stripe_public_key }}"{{ booking.email }}
+                data-key="{{ stripe_public_key }}"
+                data-email="{{ booking.email }}"
                 data-label="{{ 'label.pay' |trans }}"
                 data-locale="auto"
                 data-name="{{ 'label.museum'|trans }}"
