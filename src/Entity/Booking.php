@@ -84,13 +84,14 @@ class Booking
     private $bookingRef;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking")
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking", cascade={"persist"})
      */
     private $tickets;
 
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
+        $this->booking_date = new Datetime();
     }
 
     public function getId(): ?int
@@ -110,12 +111,12 @@ class Booking
         return $this;
     }
 
-    public function getBookingDate(): ?string
+    public function getBookingDate(): ?DateTime
     {
         return $this->booking_date;
     }
 
-    public function setBookingDate(string $booking_date): self
+    public function setBookingDate(DateTime $booking_date): self
     {
         $this->booking_date = $booking_date;
 
