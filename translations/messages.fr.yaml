@@ -1,15 +1,14 @@
 label_day: Journée
 label_half_day: Demi-journée
-confirmation1.p.thanks: "Nous vous remerçions pour votre commande. Vous allez recevoir dans quelques instants un mail contenant"
+confirmation1.p.thanks: "Nous vous remerçions pour votre commande. Vous allez recevoir dans quelques instants un mail contenant vos billets à imprimer et à présenter lors de votre visite du musée."
 label.ticketing: Billetterie
 reduce.price.p: "Le tarif réduit s'applique sous réserve de présentation de justificatif à l'accueil"
 label.continue.order: "Poursuivre la commande >"
 label.cancel.order: "X Annuler la commande"
-label.order.summary: "Récapitulatif de commande >"
+label.order.summary: "Récapitulatif de commande"
 label.beneficiary: Bénéficiaire
 label.summary: Récapitulatif
 label.confirmation: Confirmation
-confirmation2.p.thanks: 'billets à imprimer et à présenter lors de votre visite du musée.'
 label.reference: Référence
 label.type.ticket: 'Type de billet'
 label.price: Tarif

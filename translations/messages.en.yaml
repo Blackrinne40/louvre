@@ -1,15 +1,14 @@
 label_day: Day
 label_half_day: Half-day
-confirmation1.p.thanks: "We thank you for your order. You will receive in a few moments an email containing"
+confirmation1.p.thanks: "We thank you for your order. You will receive in a few moments an email containing yours tickets to print and present during your visit to the museum."
 label.ticketing: Ticketing
 reduce.price.p: "The reduced rate applies subject to presentation of proof at the reception"
 label.continue.order: "Continue the order >"
 label.cancel.order: "X Cancel the order"
-label.order.summary: "Order summary >"
+label.order.summary: "Order summary"
 label.beneficiary: Beneficiary
 label.summary: Summary
 label.confirmation: Confirmation
-confirmation2.p.thanks: 'tickets to print and present during your visit to the museum.'
 label.reference: Reference
 label.type.ticket: 'Ticket type'
 label.price: Rate
