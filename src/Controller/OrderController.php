@@ -20,25 +20,41 @@ class OrderController extends AbstractController
      * @param SessionInterface $session
      * @param Payment $payment
      * @param EntityManagerInterface $entityManager
+     * @param \Swift_Mailer $mailer
      * @return Response
+     * @throws \Exception
      */
-    public function index(Request $request, SessionInterface $session, Payment $payment, EntityManagerInterface $entityManager): Response
+    public function index(Request $request, SessionInterface $session, Payment $payment, EntityManagerInterface $entityManager, \Swift_Mailer $mailer): Response
     {
         /** @var Booking $booking */
         $booking = $session->get('booking');
 
         if ($request->isMethod('POST')) {
-            if ($reference = $payment->doPayment($booking->getTotalPrice(), "Billeterie Louvre")) {
+            if ($reference = $payment->doPayment($booking->getTotalPrice(), "Billetterie Louvre")) {
                 $booking->setBookingRef($reference);
 
                 $booking_date =new DateTime();
                 $booking->setBookingDate($booking_date);
+
                 // TODO enregistrer commande dans la bdd
                 $entityManager = $this-> getDoctrine()->getManager();
                 $entityManager->persist($booking);
                 $entityManager->flush();
 
                 // TODO envoyer le mail de confirmation
+                $message = (new \Swift_Message('Vos billets pour le Louvre'))
+                    ->setFrom('formationcpm-projets@outlook.fr')
+                    ->setTo($booking->getEmail())
+                    ->setBody(
+                        $this->renderView(
+                            //templates/emails/registration.html.twig
+                            'emails/tickets.html.twig',
+                            ['booking'=>$booking]
+                        ),
+                        'text/html'
+                    );
+
+                $mailer->send($message);
 
 
                 //TODO rediger vers la page de confirmation
