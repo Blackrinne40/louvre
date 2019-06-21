@@ -1,5 +1,5 @@
-label_day: Journée
-label_half_day: Demi-journée
+label.day: Journée
+label.half.day: Demi-journée
 confirmation1.p.thanks: "Nous vous remerçions pour votre commande. Vous allez recevoir dans quelques instants un mail contenant vos billets à imprimer et à présenter lors de votre visite du musée."
 label.ticketing: Billetterie
 reduce.price.p: "Le tarif réduit s'applique sous réserve de présentation de justificatif à l'accueil"
@@ -45,3 +45,13 @@ label.reduce.price.specif: "Etudiant, militaire, employé du musée..."
 french: 'Français'
 english: 'Anglais'
 label.footer: "©2019 - Musée du Louvre - Billetterie - Réalisée par Marine A."
+label.mail.title: "Votre réservation pour le Musée du Louvre"
+label.thanks.booking: "Nous vous remercions pour votre commande, nous vous attendons très bientôt pour votre visite !"
+label.mail.summary: "Voici les informations concernant votre commande, vous devez présenter ce document à l'accueil du Musée. N'oubliez pas d'amener vos justificatifs pour bénéficier du tarif réduit."
+label.bookingDate: "Date de réservation : Le"
+label.visitDate: "Date de la visite : "
+label.email: "Email renseigné : "
+label.quantity: "Nombre de tickets : "
+label.lastname: Nom
+label.firstname: Prénom
+label.access.pass: "Votre code de réservation"

@@ -1,0 +1,84 @@
+{# templates/emails/registration.html.twig #}
+<!doctype html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    <title>{{ 'label.mail.title'|trans }}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <img alt='logo_louvre' src="http://localhost:8000/img/logo-homepage.png" width="50" height="50">
+        </div>
+        <div class="jumbotron">
+            <h1 class="text-center display-4">{{ 'label.mail.title'|trans }}</h1>
+            <p class="text-center lead">
+               {{ 'label.thanks.booking'|trans }}
+            </p>
+        </div>
+        <div class="card">
+            <div class="d-block p-2 bg-primary text-white">{{ 'label.summary'|trans }}</div>
+            <div class="alert alert-info text-center">
+                <p>{{ 'label.mail.summary'|trans}}</p>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">{{ 'label.reference'|trans }} #{{ booking.id }}</li>
+                    <li class="list-group-item">{{ 'label.bookingDate'|trans }} {{ booking.bookingDate | date('d/m/Y') }}</li>
+                    <li class="list-group-item">{{ 'label.visitDate'|trans }} {{ booking.visitDate| date('d/m/Y')}}</li>
+                    <li class="list-group-item">{{ 'label.email'|trans }} {{ booking.email }}</li>
+                    <li class="list-group-item">{{ 'label.quantity'|trans }}{{ booking.numberTickets }}</li>
+                    <li class="list-group-item">{{ 'label.type.ticket'|trans }}{% if booking.visitType == false %}
+                            {{ 'label.half.day'|trans}}
+                        {% else %}
+                            {{ 'label.day'|trans }}
+                        {% endif %}</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <table class="table-bordered table">
+                        <thead>
+                        <tr>
+                            <th scope="col">{{ 'label.lastname'|trans }}</th>
+                            <th scope="col">{{ 'label.firstname'|trans }}</th>
+                            <th scope="col">{{ 'label.birthdate'|trans }}</th>
+                            <th scope="col">{{ 'label.country'|trans }}</th>
+                            <th scope="col">{{ 'label.reduce.price'|trans }}</th>
+                            <th scope="col">{{ 'label.price'|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ticket in booking.tickets %}
+                            <tr>
+                                <td>{{ ticket.lastname }}</td>
+                                <td>{{ ticket.firstname }}</td>
+                                <td>{{ ticket.birthdate| date('d/m/Y') }}</td>
+                                <td>{{ ticket.country }}</td>
+                                <td>{% if ticket.reductPrice == false %}{{ 'Non' }}
+                                    {% else %}
+                                        {{ 'Oui' }}
+                                    {% endif %}</td>
+                                <td>{{ ticket.price }} €</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="jumbotron jumbotron-fluid text-center">
+                    <div class="container">
+                        <h1 class="display-4">{{ 'label.access.pass'|trans }}</h1>
+                        <br/>
+                        <p class="display-4"><strong>{{ booking.bookingRef }}</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -45,3 +45,13 @@ label.reduce.price.specif: "Student, military, museum employee ..."
 french: 'French'
 english: 'English'
 label.footer: "© 2019 - Louvre Museum - Ticketing - Directed by Marine A."
+label.mail.title: "Your booking for Louvre Museum"
+label.thanks.booking: "Thanks for booking, we're waiting to see you soon for your visit! "
+label.mail.summary: "Here is informations about your booking. You have to print these and to show them before enter in the Louvre museum. Don't forget your receipts to benefit from the reduced rate."
+label.bookingDate: "Booking Date : "
+label.visitDate: "Visit date : "
+label.email: "Email : "
+label.quantity: "Quantity of tickets : "
+label.lastname: Lastname
+label.firstname: Firstname
+label.access.pass: "Your access booking"
