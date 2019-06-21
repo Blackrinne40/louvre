@@ -8,8 +8,20 @@
 
 $footer : black;
 
-.primary{
+.btn-outline-primary{
+  color: black;
   background-color: #ffcc00;
+  border-color: black;
+}
+
+.footer{
+  background-color: #313131;
+}
+
+.btn-outline-primary:hover{
+  color: white;
+  background-color: black;
+  border-color: black;
 }
 .card-header{
   background-color: #ffcc00;
@@ -18,3 +30,47 @@ $footer : black;
 .active{
   color: #ffcc00 !important;
 }
+
+@media (max-width: 1000px){
+  .card-deck {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-bottom: 0;
+    margin-left: 15px;
+  }
+  div.process.row.mt-4 {
+    display: none;
+  }
+
+}
+
+.activeLocale{
+  color: #ffcc00;
+}
+
+.small{
+  font-style:italic ;
+}
+
+div.reduce-price, div.recap{
+  margin-left: 15%;
+}
+
+.ticketing-label{
+  font-weight: lighter;
+}
+
+h4{
+  font-weight: lighter;
+}
+
+.workflow{
+  margin-left: 20%;
+}
+
+.total-price{
+  font-weight: bold;
+}
+
+
