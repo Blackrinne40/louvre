@@ -44,7 +44,7 @@
                 data-key="{{ stripe_public_key }}"
                 data-email="{{ booking.email }}"
                 data-label="{{ 'label.pay' |trans }}"
-                data-locale="auto"
+                data-locale="{{ app.request.locale }}"
                 data-name="{{ 'label.museum'|trans }}"
                 src="https://checkout.stripe.com/checkout.js">
         </script>

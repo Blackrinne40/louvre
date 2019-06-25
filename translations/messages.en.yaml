@@ -1,5 +1,5 @@
-label_day: Day
-label_half_day: Half-day
+label.day: Day
+label.half.day: Half-day
 confirmation1.p.thanks: "We thank you for your order. You will receive in a few moments an email containing yours tickets to print and present during your visit to the museum."
 label.ticketing: Ticketing
 reduce.price.p: "The reduced rate applies subject to presentation of proof at the reception"
@@ -55,3 +55,5 @@ label.quantity: "Quantity of tickets : "
 label.lastname: Lastname
 label.firstname: Firstname
 label.access.pass: "Your access booking"
+label.number.tickets : "Quantity of tickets"
+flash.payment.failed: "Payment error"

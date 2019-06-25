@@ -12,3 +12,5 @@ label.lastname: Lastname
 label.birthdate: "Birth date"
 label.day: Day
 label.half.day: "Half-day"
+helper.visit.type: "Half-day ticket is only valid from 2pm"
+invalid.message.email: "Email adresses are not identical"

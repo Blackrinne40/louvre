@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,24 +19,25 @@ class BookingType extends AbstractType
         $builder
             ->add('email',RepeatedType::class, [
                 'type'=> EmailType::class,
-                'invalid_message'=> 'Les adresses mail ne sont pas identiques',
+                'invalid_message'=> 'invalid.message.email',
                 'required'=> true,
-                'first_options'=> array('label'=> 'Adresse mail'),
-                'second_options'=> array('label'=> "Confirmer l'adresse mail")
+                'first_options'=> array('label'=> 'label.email'),
+                'second_options'=> array('label'=> "label.confirm.email")
             ])
             ->add('visit_date',DateType::class, [
-//                'format'=>'dd/MM/yy',
                 'widget' => 'single_text',
-                'attr' => ['type'=> 'date']
-                //'html5' => false,
-               // 'attr' => ['class' => 'js-datepicker']
+                'attr' => ['type'=> 'date'],
+                'label'=>'label.visit.date'
             ])
-            ->add('number_tickets')
+            ->add('number_tickets', NumberType::class, [
+                'label'=> 'label.quantity'
+            ])
             ->add('visit_type', ChoiceType::class, [
-                'help'=> "Le billet Demi-journée n'est valable qu'à partir de 14h.",
+                'help'=> "helper.visit.type",
+                'label'=>'label.visit.type',
                 'choices'=>[
-                    'Journée'=>Booking::TYPE_DAY,
-                    'Demi-journée'=>Booking::TYPE_HALF_DAY
+                    'label.day'=>Booking::TYPE_DAY,
+                    'label.half.day'=>Booking::TYPE_HALF_DAY
                 ]
             ])
         ;

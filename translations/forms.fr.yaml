@@ -12,3 +12,5 @@ label.lastname: Nom
 label.birthdate: "Date de naissance"
 label.day: Journée
 label.half.day: "Demi-journée"
+helper.visit.type: "Le billet Demi-journée n'est valable qu'à partir de 14h."
+invalid.message.email: "Les adresses mail ne sont pas identiques"

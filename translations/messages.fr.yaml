@@ -55,3 +55,5 @@ label.quantity: "Nombre de tickets : "
 label.lastname: Nom
 label.firstname: Prénom
 label.access.pass: "Votre code de réservation"
+label.number.tickets : "Nombre de tickets"
+flash.payment.failed: "Erreur de paiement"

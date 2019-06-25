@@ -32,6 +32,7 @@ class Booking
     const PRICE_SENIOR = 12;
     const PRICE_REDUCT = 10;
     const MAX_CAPACITY = 1000;
+    const COEF_HALF_DAY = 0.5;
 
 
     /**
@@ -85,6 +86,7 @@ class Booking
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking", cascade={"persist"})
+     * @Assert\Valid()
      */
     private $tickets;
 
@@ -92,6 +94,7 @@ class Booking
     {
         $this->tickets = new ArrayCollection();
         $this->booking_date = new Datetime();
+        $this->visit_date = new DateTime();
     }
 
     public function getId(): ?int
@@ -154,7 +157,7 @@ class Booking
 
     public function getVisitTypeLabel(): string
     {
-        return ($this->visit_type == Booking::TYPE_DAY)? "label_day" : "label_half_day";
+        return ($this->visit_type == Booking::TYPE_DAY)? "label.day" : "label.half.day";
     }
 
     public function setVisitType(int $visit_type): self
