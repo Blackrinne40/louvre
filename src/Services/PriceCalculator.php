@@ -12,7 +12,6 @@ class PriceCalculator
     /**
      * @param Booking $booking
      * @return int
-     * @throws Exception
      */
     public function computeBookingPrice(Booking $booking)
     {
@@ -31,12 +30,12 @@ class PriceCalculator
                 $price = Booking::PRICE_SENIOR;
             }
 
-            if ($ticket->getReductPrice() && $price > 10) {
+            if ($ticket->getReductPrice() && $price > Booking::PRICE_REDUCT) {
                 $price = Booking::PRICE_REDUCT;
             }
 
             if ($booking->getVisitType() == Booking::TYPE_HALF_DAY) {
-                $price = $price / 2;
+                $price = $price * Booking::COEF_HALF_DAY;
             }
 
             $ticket->setPrice($price);

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\BookingTicketsType;
+use App\Manager\BookingManager;
 use App\Services\PriceCalculator;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,21 +17,18 @@ class TicketController extends AbstractController
     /**
      * @Route("/ticket", name="ticket")
      * @param Request $request
-     * @param SessionInterface $session
-     * @param PriceCalculator $calculator
+     * @param BookingManager $bookingManager
      * @return Response
-     * @throws Exception
      */
-    public function index(Request $request,SessionInterface $session, PriceCalculator $calculator):Response
+    public function index(Request $request,BookingManager $bookingManager):Response
     {
 
-        $booking = $session->get('booking');
+        $booking = $bookingManager->getCurrentBooking();
 
         $form = $this->createForm(BookingTicketsType::class, $booking);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $calculator->computeBookingPrice($booking);
-            $session->set('booking', $booking);
+            $bookingManager->computePrice($booking);
             return $this->redirectToRoute('order');
 
         }

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TicketRepository")
@@ -20,21 +21,32 @@ class Ticket
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2, max=30)
+     * @Assert\Type(type="alpha")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2, max=35)
+     * @Assert\Type(type="alpha")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
+     * @Assert\Date()
+     * @Assert\LessThan("today")
      */
     private $birthdate;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Country()
      */
     private $country;
 
@@ -118,12 +130,12 @@ class Ticket
         return $this;
     }
 
-    public function getReductPrice(): ?int
+    public function getReductPrice(): ?bool
     {
         return $this->reductPrice;
     }
 
-    public function setReductPrice(int $reductPrice): self
+    public function setReductPrice(bool $reductPrice): self
     {
         $this->reductPrice = $reductPrice;
 

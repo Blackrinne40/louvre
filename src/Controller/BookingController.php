@@ -2,13 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Booking;
-use App\Entity\Ticket;
 use App\Form\BookingType;
+use App\Manager\BookingManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BookingController extends AbstractController
@@ -16,32 +14,20 @@ class BookingController extends AbstractController
     /**
      * @Route("/booking", name="booking")
      * @param Request $request
-     * @param SessionInterface $session
+     * @param BookingManager $bookingManager
      * @return Response
      */
-    public function index(Request $request, SessionInterface $session): Response
+    public function index(Request $request, BookingManager $bookingManager): Response
     {
-        $form = $this->createForm(BookingType::class);
+        $form = $this->createForm(BookingType::class, $bookingManager->initBooking());
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var Booking $booking */
-            $booking = $form->getData();
 
-            $ticketsLimit= $booking->getNumberTickets();
-
-
-            for ($i=1; $i<= $ticketsLimit ; $i++)
-            {
-                $booking->addTicket(new Ticket());
-            }
-
-
-            $session->set('booking', $booking);
+            $bookingManager->generateTickets($form->getData());
             return $this->redirectToRoute('ticket');
         }
-
 
         return $this->render('booking/index.html.twig', [
             'current_menu' => 'booking',

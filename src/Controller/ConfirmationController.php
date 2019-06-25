@@ -20,6 +20,7 @@ class ConfirmationController extends AbstractController
     {
         if($session->has('booking') === true) {
             $booking = $session->get('booking');
+            $session->remove('booking');
 
 
             return $this->render("order/confirmation.html.twig", [
@@ -27,5 +28,7 @@ class ConfirmationController extends AbstractController
                 'booking' => $booking
             ]);
         }
+
+        return $this->redirectToRoute('home');
     }
 }
