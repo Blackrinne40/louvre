@@ -2,6 +2,7 @@
 
 namespace App\Validator;
 
+use DateTime;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
@@ -10,12 +11,11 @@ class NotHolidaysValidator extends ConstraintValidator
     /**
      * @param $visitDate
      * @param Constraint $constraint
-     * @param null $year
-     * @return array
+     * @return void
      */
-    public function validate($visitDate, Constraint $constraint, $year = null)
+    public function validate($visitDate, Constraint $constraint)
     {
-        if (!$visitDate instanceof \DateTime) {
+        if (!$visitDate instanceof DateTime) {
             return;
         }
 

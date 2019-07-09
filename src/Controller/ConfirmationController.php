@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Manager\BookingManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -16,19 +17,15 @@ class ConfirmationController extends AbstractController
      * @param SessionInterface $session
      * @return Response
      */
-    public function index(SessionInterface $session):Response
+    public function index(BookingManager $bookingManager): Response
     {
-        if($session->has('booking') === true) {
-            $booking = $session->get('booking');
-            $session->remove('booking');
+        $booking = $bookingManager->getAndClearCurrentBooking();
 
 
-            return $this->render("order/confirmation.html.twig", [
-                'current_menu' => 'confirmation',
-                'booking' => $booking
-            ]);
-        }
+        return $this->render("order/confirmation.html.twig", [
+            'current_menu' => 'confirmation',
+            'booking' => $booking
+        ]);
 
-        return $this->redirectToRoute('home');
     }
 }

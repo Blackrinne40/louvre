@@ -5,7 +5,6 @@ namespace App\Services;
 
 
 use App\Entity\Booking;
-use Exception;
 
 class PriceCalculator
 {
@@ -18,6 +17,8 @@ class PriceCalculator
         $total = 0;
         foreach ($booking->getTickets() as $ticket) {
             $age = $ticket->getBirthdate()->diff($booking->getVisitDate())->y;
+            //Senior price Full-day
+            $price = Booking::PRICE_SENIOR;
             if ($age < Booking::AGE_BABY) {
                 $price = Booking::PRICE_BABY;
             } elseif ($age < Booking::AGE_CHILD) {
@@ -25,9 +26,6 @@ class PriceCalculator
             } //Normal price Full-day
             elseif ($age < Booking::AGE_SENIOR) {
                 $price = Booking::PRICE_ADULT;
-            } //Senior price Full-day
-            else {
-                $price = Booking::PRICE_SENIOR;
             }
 
             if ($ticket->getReductPrice() && $price > Booking::PRICE_REDUCT) {

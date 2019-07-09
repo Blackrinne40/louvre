@@ -13,6 +13,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Swift_Image;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BookingManager
 {
@@ -111,11 +112,25 @@ class BookingManager
      */
     public function getCurrentBooking(): Booking
     {
-        return $this->session->get(self::SESSION_ID);
+        $booking =  $this->session->get(self::SESSION_ID);
+
+        if(!$booking instanceof Booking ){
+            throw new NotFoundHttpException();
+        }
+        return $booking;
     }
 
     public function computePrice(Booking $booking)
     {
         $this->priceCalculator->computeBookingPrice($booking);
+    }
+
+    public function getAndClearCurrentBooking(): Booking
+    {
+        $booking = $this->getCurrentBooking();
+        $this->session->remove(self::SESSION_ID);
+
+        return $booking;
+
     }
 }

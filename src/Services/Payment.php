@@ -23,6 +23,7 @@ class Payment
         $this->request = $requestStack->getCurrentRequest();
         $this->requestStack = $requestStack;
         $this->privateKey = $privateKey;
+
     }
 
     public function doPayment(float $amount, string $description)

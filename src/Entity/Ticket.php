@@ -38,7 +38,7 @@ class Ticket
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank()
-     * @Assert\Date()
+     * @Assert\Type(type="\DateTimeInterface")
      * @Assert\LessThan("today")
      */
     private $birthdate;
