@@ -11,7 +11,6 @@ use App\Services\Payment;
 use App\Services\PriceCalculator;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Swift_Image;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
