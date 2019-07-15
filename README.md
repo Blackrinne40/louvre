@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/56195da3986f443fadca7911f3b1094f)](https://www.codacy.com/app/Blackrinne40/louvre?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Blackrinne40/louvre&amp;utm_campaign=Badge_Grade)
+
 <h1>Ticketing for Louvre Museum</h1>
 
 Project started on May, the 21st of 2019
